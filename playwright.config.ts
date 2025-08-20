@@ -25,29 +25,71 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
     trace: 'on-first-retry',
   },
 
-  /* Configure projects for major browsers */
   projects: [
+    // ---- Chrome ----
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'chromium-shirttuning-sk',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL: 'https://www.shirttuning.sk/' 
+      },
+    },
+    {
+      name: 'chromium-shirttuning-cz',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL: 'https://www.shirttuning.cz/' 
+      },
+    },
+    {
+      name: 'chromium-shirttuning-de',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL: 'https://www.shirttuning.de/' 
+      },
+    },
+    {
+      name: 'chromium-shirttuning-nl',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL: 'https://www.shirttuning.nl/' 
+      },
+    },
+    {
+      name: 'chromium-shirttuning-it',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL: 'https://www.shirttuning.it/' 
+      },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // // ---- Firefox ----
+    // {
+    //   name: 'firefox-shirttuning-sk',
+    //   use: { ...devices['Desktop Firefox'], baseURL: 'https://www.shirttuning.sk/' },
+    // },
+    // {
+    //   name: 'firefox-shirttuning-cz',
+    //   use: { ...devices['Desktop Firefox'], baseURL: 'https://www.shirttuning.cz/' },
+    // },
+    // {
+    //   name: 'firefox-shirttuning-de',
+    //   use: { ...devices['Desktop Firefox'], baseURL: 'https://www.shirttuning.de/' },
+    // },
+    // {
+    //   name: 'firefox-shirttuning-nl',
+    //   use: { ...devices['Desktop Firefox'], baseURL: 'https://www.shirttuning.nl/' },
+    // },
+    // {
+    //   name: 'firefox-shirttuning-it',
+    //   use: { ...devices['Desktop Firefox'], baseURL: 'https://www.shirttuning.it/' },
+    // },
 
     /* Test against mobile viewports. */
     // {

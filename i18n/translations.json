@@ -1,0 +1,42 @@
+{
+  "sk": {
+    "cookies": {
+      "acceptAll": "Povoliť všetko"
+    },
+    "nav": {
+      "creator": "Kreátor"
+    }
+  },
+  "cz": {
+    "cookies": {
+      "acceptAll": "Povolit vše"
+    },
+    "nav": {
+      "creator": "Kreator"
+    }
+  },
+  "de": {
+    "cookies": {
+      "acceptAll": "Alle akzeptieren"
+    },
+    "nav": {
+      "creator": "Selbst gestalten"
+    }
+  },
+  "nl": {
+    "cookies": {
+      "acceptAll": "Alles toestaan"
+    },
+    "nav": {
+      "creator": "Ontwerper"
+    }
+  },
+  "it": {
+    "cookies": {
+      "acceptAll": "Consenti tutto"
+    },
+    "nav": {
+      "creator": "Creatore"
+    }
+  }
+}
