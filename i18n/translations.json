@@ -5,6 +5,9 @@
     },
     "nav": {
       "creator": "Kreátor"
+    },
+    "product": {
+        "name": "BC190 tričko Pánske"
     }
   },
   "cz": {
@@ -13,6 +16,9 @@
     },
     "nav": {
       "creator": "Kreator"
+    },
+    "product": {
+        "name": "BC190 tričko pánské"
     }
   },
   "de": {
@@ -21,6 +27,9 @@
     },
     "nav": {
       "creator": "Selbst gestalten"
+    },
+    "product": {
+        "name": "E190-T"
     }
   },
   "nl": {
@@ -29,6 +38,9 @@
     },
     "nav": {
       "creator": "Ontwerper"
+    },
+    "product": {
+        "name": "BC190 T-shirt Heren"
     }
   },
   "it": {
@@ -37,6 +49,9 @@
     },
     "nav": {
       "creator": "Creatore"
+    },
+    "product": {
+        "name": "BC190 Maglietta Uomo"
     }
   }
 }
