@@ -18,6 +18,8 @@ test.describe('Shirttuning - Live Testing', () => {
     await homePage.acceptCookies();
     await homePage.goToCreator();
 
+
+
     // -----------------------------
     // 2️⃣ Product Page
     // -----------------------------
@@ -28,6 +30,14 @@ test.describe('Shirttuning - Live Testing', () => {
     const currentLang = getLangFromBaseURL(baseURL);
     await productPage.assertProductTitleVisibleAndCorrect(currentLang);
 
-    await productPage.chooseProductColor();
+    await productPage.selectRandomColor();
+    await productPage.selectRandomMotive();
+    
+
+
+
+    // -----------------------------
+    // 3️⃣ Cart Page
+    // -----------------------------
   });
 });
