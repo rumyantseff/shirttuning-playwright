@@ -31,8 +31,10 @@ test.describe('Shirttuning - Live Testing', () => {
     await productPage.assertProductTitleVisibleAndCorrect(currentLang);
 
     await productPage.selectRandomColor();
+
     await productPage.selectRandomMotive();
     
+    // await productPage.addToCart();
 
 
 
