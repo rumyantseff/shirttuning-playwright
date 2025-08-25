@@ -9,6 +9,7 @@ export class ProductPage {
   readonly colorList: Locator;
   readonly addMotiveBtn: Locator;
   readonly motiveList: Locator;
+  readonly selectedMotive: Locator;
   readonly addToCartBtn: Locator;
 
   constructor(page: Page) {
@@ -30,7 +31,7 @@ export class ProductPage {
       '#stage > g:nth-child(2) > g:nth-child(1) > g:nth-child(1) > g:nth-child(2) > g:nth-child(13) > g:nth-child(1) > g:nth-child(4) > g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > g:nth-child(3) > g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > g:nth-child(1)'
     );
     
-    // this.addToCartBtn = page.locator('g').filter({ hasText: /^10,90 €Cena vrátane DPH, bez poštovnéhoVyber množstvo a veľkosťZdieľaj a ulož$/ }).locator('rect').nth(2)
+    this.selectedMotive = page.locator('g:nth-child(6) > g > rect').first()
   }
   
   async assertProductTitleVisibleAndCorrect(language: keyof typeof translations) {
@@ -53,9 +54,7 @@ export class ProductPage {
     const randomIndex = Math.floor(Math.random() * count);
     const option = locator.nth(randomIndex);
 
-    // log pre debug
-    const html = await option.evaluate(el => el.outerHTML).catch(() => 'n/a');
-    console.log(`👉 Selected random ${label} index: ${randomIndex}, element: ${html}`);
+    console.log(`Selected random ${label} index: ${randomIndex}`);
 
     await option.click({ force: true });
   }
@@ -65,9 +64,13 @@ export class ProductPage {
     await this.selectRandom(this.colorList, 'color'); 
   } 
   
-  async selectRandomMotive() { 
+  async selectRandomMotive() {
     await this.addMotiveBtn.click();
-    await this.motiveList.first().waitFor({ state: 'visible', timeout: 5000 });
-    await this.selectRandom(this.motiveList, 'motive'); 
+    const motiveOptions = this.motiveList.locator('> g');
+    await this.selectRandom(motiveOptions, 'motive');
+  }
+
+  async assertSelectedMotive() {
+    await expect(this.selectedMotive).toBeVisible();
   }
 }
