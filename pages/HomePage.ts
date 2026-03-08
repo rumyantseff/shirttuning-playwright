@@ -3,9 +3,8 @@ import { getLangFromBaseURL, t } from '../utils/translations';
 
 export class HomePage {
   readonly page: Page;
-  readonly lang: string;
   readonly logo: Locator;
-  readonly allowAllCookiesButton: Locator
+  readonly allowAllCookiesButton: Locator;
   readonly creatorLink: Locator;
 
   constructor(page: Page, baseURL: string) {
@@ -15,9 +14,7 @@ export class HomePage {
     const translate = t(lang);
 
     this.allowAllCookiesButton = page.getByRole('button', { name: translate.cookies.acceptAll });
-
     this.logo = page.locator('#header');
-
     this.creatorLink = page.getByRole('link', { name: translate.nav.creator, exact: true });
   }
 
@@ -25,14 +22,14 @@ export class HomePage {
     await this.page.goto(baseURL);
   }
 
+  async assertLogoVisible() {
+    await expect(this.logo).toBeVisible();
+  }
+
   async acceptCookies() {
     if (await this.allowAllCookiesButton.isVisible()) {
       await this.allowAllCookiesButton.click();
     }
-  }
-
-  async assertLogoVisible() {
-    await expect(this.logo).toBeVisible();
   }
 
   async goToCreator() {
